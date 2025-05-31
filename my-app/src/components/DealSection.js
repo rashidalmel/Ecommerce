@@ -80,7 +80,7 @@ const DealSection = () => {
   return (
     <div className="deal-section">
       <div className="deal-header">
-        <div className="deal-title">
+        <div className="deal-title deal-group">
           <h2>Day Of The <span className="deal-highlight">Deal</span></h2>
           <p>Don't wait. The time will never be just right.</p>
         </div>
