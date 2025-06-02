@@ -23,9 +23,8 @@
 }
 
 .discount-text {
-  background-color: #e8f1ff;
-  color: #4361ee;
-  padding: 0.5rem 1rem;
+  color: grey;
+  padding: 0.5rem;
   border-radius: 25px;
   font-size: 0.9rem;
   display: inline-block;
@@ -231,6 +230,35 @@
   transform: translateY(-2px);
 }
 
+.category-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9rem;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: #4361ee;
+  color: #4361ee;
+}
+
+.filter-btn.active {
+  background: #4361ee;
+  color: white;
+  border-color: #4361ee;
+}
+
 @media (max-width: 994px) {
   .category-section {
     padding: 2rem 0;
@@ -408,6 +436,28 @@
     font-size: 12px;
     padding: 6px 12px;
   }
+
+  .discount-overlay {
+    padding: 12px;
+  }
+
+  .discount-text {
+    gap: 8px;
+  }
+
+  .discount-percentage {
+    font-size: 16px;
+  }
+
+  .discount-description {
+    font-size: 14px;
+  }
+
+  .discount-shop-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 8px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -482,6 +532,7 @@
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  margin-left: auto;
 }
 
 .utility-nav a {
@@ -494,12 +545,13 @@
   text-decoration: underline;
 }
 
-.dropdown {
+.utility-nav .dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 
-.dropdown-btn {
+.utility-nav .dropdown-btn {
   background: none;
   border: none;
   color: white;
@@ -507,6 +559,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  gap: 0.3rem;
   padding: 0;
 }
 
@@ -730,7 +783,7 @@
 
 .dropdown-arrow {
   font-size: 0.8rem;
-  margin-left: 4px;
+  margin-left: 0.2rem;
   transition: transform 0.2s;
 }
 
@@ -982,7 +1035,7 @@
 
 .nav-item .dropdown-arrow {
   font-size: 0.8rem;
-  margin-left: 4px;
+  margin-left: 0.2rem;
   transition: transform 0.2s;
 }
 
@@ -1107,7 +1160,6 @@
 
 @media (max-width: 768px) {
   .banner-content {
-    flex-direction: column;
     gap: 0.5rem;
     text-align: center;
     padding: 0 1rem;
@@ -1496,6 +1548,23 @@
     font-size: 0.8rem;
   }
 
+  .discount-shop-btn {
+    color: #3d4750;
+    border: 1px solid #3d4750;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: fit-content;
+  }
+
+  .discount-shop-btn:hover {
+    background-color: #3651d4;
+    border: 1px solid #3651d4;
+    color: white;
+  }
+
   .dropdown-menu,
   .products-dropdown,
   .pages-dropdown,
@@ -1665,14 +1734,14 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   margin: 0;
-  text-align: left;
+  line-height: 1.2;
 }
 
 .banner-content p {
   color: #686e7d;
   font-size: 1rem;
   margin: 0;
-  text-align: left;
+  margin-bottom: 1rem;
 }
 
 .shop-button {
@@ -1827,8 +1896,8 @@
   margin: 0 auto;
   padding: 0 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
 .deal-card {
@@ -1846,8 +1915,9 @@
 
 .deal-card-image {
   position: relative;
-  padding-top: 100%;
-  background: #f8f9fa;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect ratio */
+  overflow: hidden;
 }
 
 .deal-card-image img {
@@ -1947,6 +2017,19 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   }
+
+  .discount-overlay {
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .discount-text {
+    align-items: center;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1970,5 +2053,201 @@
 
   .timer-label {
     font-size: 0.6rem;
+  }
+}
+
+.new-section {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+.new-section-image {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.new-section-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  min-width: 100vw;
+}
+
+.discount-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: min(5vw, 25px);
+  border-radius: 8px 8px 0 0;
+  width: min(90%, 400px);
+  margin-right: min(5vw, 30px);
+}
+
+.discount-text2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: min(2vw, 12px);
+}
+
+.discount-percentage {
+  font-size: clamp(16px, 2.5vw, 24px);
+  font-weight: bold;
+  color: #4361ee;
+  line-height: 1.2;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.discount-description {
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: bold;
+  color: #2d3748;
+  white-space: normal;
+  line-height: 1.4;
+  font-family: 'Quicksand', sans-serif;
+  max-width: 100%;
+}
+
+.discount-shop-btn {
+  color: #3d4750;
+  border: 1px solid #3d4750;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: fit-content;
+}
+
+.discount-shop-btn:hover {
+  background-color: #3651d4;
+  border: 1px solid #3651d4;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .new-section-image img {
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .new-section-image img {
+    max-height: 300px;
+  }
+}
+
+/* Why Us Section Styles */
+.whyus-section {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+
+.whyus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.whyus-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.whyus-header h2 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.whyus-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.whyus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.whyus-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease;
+}
+
+.whyus-card:hover {
+  transform: translateY(-10px);
+}
+
+.whyus-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+}
+
+.whyus-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.whyus-card h3 {
+  font-size: 1.2rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+}
+
+.whyus-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .whyus-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .whyus-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .whyus-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .whyus-header p {
+    font-size: 1rem;
+  }
+  
+  .whyus-card {
+    padding: 1.5rem;
   }
 }
