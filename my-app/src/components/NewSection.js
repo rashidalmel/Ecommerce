@@ -7,10 +7,10 @@ const NewSection = () => {
     <div className="new-section">
       <div className="new-section-image">
         <img src={bannerImage} alt="Fresh Market Banner" />
-        <div className="discount-overlay">
-          <div className="discount-text">
+        <div className="discount-overlay">          <div className="discount-text">
             <span className="discount-percentage">25% Off</span>
-            <span className="discount-description">Fresh & Organic vegetables</span>
+            <span className="discount-description">Fresh<br />& Organic</span>
+            <span className="discount-description">vegetables</span>
             <button className="discount-shop-btn">Shop Now</button>
           </div>
         </div>

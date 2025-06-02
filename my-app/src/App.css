@@ -23,11 +23,32 @@
 }
 
 .discount-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   color: grey;
   padding: 0.5rem;
   border-radius: 25px;
   font-size: 0.9rem;
   display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.discount-percentage {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3651d4;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.discount-description {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #2d3748;
+  display: block;
   margin-bottom: 1rem;
 }
 
@@ -57,6 +78,31 @@
 
 .shop-now-btn:hover {
   background-color: #3651d4;
+}
+
+.discount-shop-btn {
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
+}
+
+.discount-shop-btn:hover {
+  background-color: #3651d4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(67, 97, 238, 0.3);
+}
+
+.discount-shop-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(67, 97, 238, 0.2);
 }
 
 .hero-image {
@@ -1540,6 +1586,12 @@
     font-size: 0.9rem;
   }
 
+  .discount-shop-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
   .location-selector {
     padding: 0.4rem 0.8rem;
   }
@@ -1721,11 +1773,10 @@
 
 .banner-content {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  display: block;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 1rem;
 }
 
 .banner-content h3 {
@@ -1735,6 +1786,7 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
 .banner-content p {
@@ -1808,7 +1860,7 @@
   }
   
   .banner-content {
-    align-items: flex-start;
+    align-items: center;
   }
   
   .banner-image {
@@ -2054,6 +2106,17 @@
   .timer-label {
     font-size: 0.6rem;
   }
+
+  .discount-overlay {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(90%, 300px);
+    margin-right: 0;
+    padding: 20px;
+    border-radius: 8px;
+    bottom: 20px;
+  }
 }
 
 .new-section {
@@ -2096,57 +2159,63 @@
   margin-right: min(5vw, 30px);
 }
 
-.discount-text2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: min(2vw, 12px);
-}
-
-.discount-percentage {
-  font-size: clamp(16px, 2.5vw, 24px);
-  font-weight: bold;
-  color: #4361ee;
-  line-height: 1.2;
-  font-family: 'Quicksand', sans-serif;
-}
-
-.discount-description {
-  font-size: clamp(14px, 2vw, 20px);
-  font-weight: bold;
-  color: #2d3748;
-  white-space: normal;
-  line-height: 1.4;
-  font-family: 'Quicksand', sans-serif;
-  max-width: 100%;
-}
-
-.discount-shop-btn {
-  color: #3d4750;
-  border: 1px solid #3d4750;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: fit-content;
-}
-
-.discount-shop-btn:hover {
-  background-color: #3651d4;
-  border: 1px solid #3651d4;
-  color: white;
-}
-
+/* Tablet styles */
 @media (max-width: 768px) {
-  .new-section-image img {
-    max-height: 350px;
+  .discount-overlay {
+    width: min(70%, 260px);
+    padding: min(2.5vw, 16px);
+    margin-right: 0;
+    right: min(2.5vw, 16px);
+    border-radius: 6px;
+    position: absolute;
+  }
+  
+  .discount-percentage {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .discount-description {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .discount-shop-btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.3rem;
+    margin-top: 0.75rem;
   }
 }
 
-@media (max-width: 480px) {
-  .new-section-image img {
-    max-height: 300px;
+/* Mobile styles */
+@media (max-width: 576px) {
+  .discount-overlay {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(80%, 220px);
+    margin-right: 0;
+    padding: 12px;
+    border-radius: 5px;
+    bottom: 12px;
+  }
+
+  .discount-percentage {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .discount-description {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .discount-shop-btn {
+    color: white;
+    border: 1px solid #4338ca;
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    margin-top: 0.5rem;
   }
 }
 
