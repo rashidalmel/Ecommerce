@@ -7,6 +7,7 @@ import CategoryBannerSection from './components/CategoryBannerSection';
 import DealSection2 from './components/DealSection2';
 import DealSection3 from './components/DealSection3';
 import WhyUsSection from './components/WhyUsSection';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <DealSection2 />
       <DealSection3 />
       <WhyUsSection />
+      <Footer />
     </div>
   );
 }
