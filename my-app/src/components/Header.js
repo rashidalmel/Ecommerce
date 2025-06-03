@@ -58,7 +58,7 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
           <div className="utility-nav">            <a href="#help">Help?</a>
             <a href="#track">Track Order</a>
             <div className="dropdown">              <button className="dropdown-btn">
-                Language <span className="dropdown-arrow">▼</span>
+                Language ○ <span className="dropdown-arrow">▼</span>
               </button>
               <div className="utility-dropdown">
                 <div className="dropdown-item">English</div>
@@ -69,7 +69,7 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
             </div>
             <div className="dropdown">
               <button className="dropdown-btn">
-                Currency <span className="dropdown-arrow">▼</span>
+                Currency ○ <span className="dropdown-arrow">▼</span>
               </button>
               <div className="utility-dropdown">
                 <div className="dropdown-item">USD ($)</div>
@@ -166,10 +166,10 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
           <div className="nav-item desktop-only">
             <img src="/icons8-categorize-80.png" alt="Categories" className="category-icon" /></div>
           <div className="nav-item">Home</div>
-          <div className="nav-item" onClick={toggleCategoriesDropdown}>
+          <div className="nav-item">
             Categories
-            <span className={`dropdown-arrow ${isCategoriesOpen ? 'open' : ''}`}>○</span>            {isCategoriesOpen && (
-              <div className="dropdown-menu categories-dropdown">
+            <span className="dropdown-arrow">○</span>
+            <div className="dropdown-menu categories-dropdown">
                 <div className="dropdown-section">
                   <div className="dropdown-header">Classic</div>
                   <div className="dropdown-item">Left sidebar 3 column</div>
@@ -203,7 +203,6 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
                   <div className="dropdown-item">Full width 2 column</div>
                 </div>
               </div>
-            )}
           </div>          <div className="nav-item">
             Products
             <span className="dropdown-arrow">○</span>

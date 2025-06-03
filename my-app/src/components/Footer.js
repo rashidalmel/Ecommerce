@@ -72,19 +72,7 @@ const Footer = () => {
             <li><a href="/payments">Payments</a></li>          </ul>
         </div>
 
-        {/* Contact Section */}
-        <div className="footer-section">
-          <h3 onClick={() => toggleSection('contact')} className="footer-heading">
-            Contact
-            <span className={`dropdown-arrow ${activeSection === 'contact' ? 'open' : ''}`}>▼</span>
-          </h3>
-          <ul className={`footer-list ${activeSection === 'contact' ? 'active' : ''}`}>
-            <li>71 Lajamni, Motavarachha, Surat, Gujarat, Bharat 394101.</li>
-            <li>+00 9876543210</li>
-            <li>example@email.com</li>
-          </ul>
-        </div>
-      </div>
+        {/* Contact Section */}      </div>
 
       {/* Bottom Section */}
       <div className="footer-bottom">
