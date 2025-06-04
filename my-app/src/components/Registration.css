@@ -1,0 +1,256 @@
+.registration-container {
+    background-color: #f8f9fa;
+    padding: 3rem 1rem;
+    min-height: calc(100vh - 180px); /* Adjust for header/footer */
+}
+
+.registration-box {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.registration-box h2 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.form-row {
+    display: flex;
+    gap: 2rem; /* Increased gap between columns */
+    margin-bottom: 2rem; /* Increased bottom margin */
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 0; /* Remove bottom margin since we're using row margin */
+    min-width: 0; /* Prevent flex items from overflowing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.2px;
+}
+
+.form-group label:after {
+    content: "*";
+    color: #e53e3e;
+    margin-left: 4px;
+    font-size: 0.9em;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    color: #2d3748;
+    background-color: #fff;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    font-family: 'Quicksand', sans-serif;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.form-group input::placeholder {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+.form-group input:hover,
+.form-group select:hover {
+    border-color: #4361ee;
+}
+
+.register-button {
+    width: auto;
+    min-width: 200px;
+    padding: 0.75rem 2rem;
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1.5rem auto 0;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.register-button:hover {
+    background-color: #3651d4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
+}
+
+.register-button:active {
+    transform: translateY(0);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.75rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.login-link span {
+    color: #4361ee;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 4px;
+    transition: all 0.2s ease;
+}
+
+.login-link span:hover {
+    color: #3651d4;
+    text-decoration: underline;
+}
+
+/* Breadcrumb styles */
+.breadcrumb {
+    background-color: #f8f9fa;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.breadcrumb-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.breadcrumb h1 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.breadcrumb-path {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.breadcrumb-path span,
+.breadcrumb-path .breadcrumb-link {
+    color: #64748b;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.breadcrumb-path span:hover {
+    color: #4361ee;
+}
+
+.breadcrumb-path span.current {
+    color: #4361ee;
+    font-weight: 600;
+}
+
+.breadcrumb-path .separator {
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-container {
+        padding: 2rem 1rem;
+    }
+
+    .registration-box {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1.5rem; /* Adjust gap for mobile */
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .registration-box h2 {
+        font-size: 1.75rem;
+    }
+
+    .breadcrumb {
+        padding: 1rem 0;
+    }
+
+    .breadcrumb h1 {
+        font-size: 1.25rem;
+    }
+
+    .breadcrumb-path {
+        font-size: 0.9rem;
+    }
+}

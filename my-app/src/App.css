@@ -907,7 +907,7 @@
   display: flex;
   gap: 1.5rem;
   align-items: center;
-  margin-right: auto;
+  margin-left: auto;
 }
 
 .utility-nav a {
@@ -1101,7 +1101,6 @@
 }
 
 .categories-dropdown .dropdown-item:hover {
-  color: #4338ca;
   transform: translateX(8px);
 }
 
@@ -1114,7 +1113,6 @@
 
 .dropdown-item:hover {
   background-color: #f7fafc;
-  color: #4361ee;
 }
 
 .search-divider {
@@ -1280,7 +1278,21 @@
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-10px);
-  transition: all 0.3s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: transparent;
 }
 
 .nav-item:hover .dropdown-menu,
@@ -1304,17 +1316,21 @@
 }
 
 .icon-img {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   vertical-align: middle;
 }
 
-.search-button .icon-img {
+.search-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
   opacity: 0.6;
 }
 
-.search-button:hover .icon-img {
+.search-button:hover .search-icon {
   opacity: 1;
 }
 
@@ -1341,19 +1357,18 @@
 .blog-dropdown,
 .products-dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   left: 0;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 0.5rem;
   min-width: 200px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   pointer-events: none;
 }
 
@@ -1374,9 +1389,8 @@
 }
 
 .products-dropdown .dropdown-item:hover {
-  color: #4338ca;
+  background-color: #f7fafc;
   transform: translateX(8px);
-  background-color: transparent;
 }
 
 .products-dropdown .has-submenu {
@@ -2129,7 +2143,6 @@
 
 .banner-content {
   flex: 1;
-  display: block;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
@@ -2753,4 +2766,30 @@
 /* Style specifically for contact info */
 .footer-section:last-child .footer-list li {
   word-break: break-word;
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+}
+
+.auth-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.auth-links a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .auth-links {
+    gap: 0.5rem;
+  }
+  
+  .auth-links a {
+    font-size: 0.85rem;
+  }
 }

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdownOpen] = useState(false);
+const Header = () => {
+  const navigate = useNavigate();
+  const [isVegetablesDropdownOpen, setIsVegetablesDropdownOpen] = useState(false);
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
   const [isPagesOpen, setIsPagesOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
@@ -48,6 +51,11 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
     setIsLocationDropdownOpen(false);
     // Toggle active class on hamburger menu
     document.querySelector('.hamburger-menu').classList.toggle('active');
+  };
+
+  const handleRegisterClick = (e) => {
+    e.preventDefault();
+    navigate('/register');
   };
 
   return (
@@ -101,7 +109,7 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
                 placeholder="Search products..."
                 className="search-input"
               />              <button className="search-button">
-                <img src="/icons8-search-24.png" alt="Search" className="icon-img" />
+                <img src="/icons8-search-24.png" alt="Search" className="search-icon" />
               </button>
             </div>
           </div>          <div className="header-actions">
@@ -112,8 +120,8 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
                 <div>Account</div>
                 <div className="action-subtitle">Login</div>
                 <div className="dropdown-menu account-dropdown">
-                  <div className="dropdown-item">Register</div>
-                  <div className="dropdown-item">Login</div>
+                  <div className="dropdown-item" onClick={() => navigate('/register')}>Register</div>
+                  <div className="dropdown-item" onClick={() => navigate('/login')}>Login</div>
                   <div className="dropdown-item">Checkout</div>
                 </div>
               </div>
@@ -148,9 +156,8 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
             <div className="mobile-nav-header">
               <div className="mobile-nav-title">Menu</div>
               <div className="mobile-nav-close" onClick={toggleMobileMenu}>✕</div>
-            </div>
-            <div className="mobile-nav-content">
-              <div className="mobile-nav-item">Home</div>
+            </div>              <div className="mobile-nav-content">
+              <div className="mobile-nav-item" onClick={() => navigate('/')}>Home</div>
               <div className="mobile-nav-item" onClick={toggleCategoriesDropdown}>
                 Categories
                 <span className={`dropdown-arrow ${isCategoriesOpen ? 'open' : ''}`}>▼</span>
@@ -165,7 +172,7 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
           
           <div className="nav-item desktop-only">
             <img src="/icons8-categorize-80.png" alt="Categories" className="category-icon" /></div>
-          <div className="nav-item">Home</div>
+          <div className="nav-item" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>Home</div>
           <div className="nav-item">
             Categories
             <span className="dropdown-arrow">○</span>
@@ -238,8 +245,8 @@ const Header = () => {  const [isVegetablesDropdownOpen, setIsVegetablesDropdown
               <div className="dropdown-item">Checkout</div>
               <div className="dropdown-item">Compare</div>
               <div className="dropdown-item">FAQ</div>
-              <div className="dropdown-item">Login</div>
-              <div className="dropdown-item">Register</div>
+              <div className="dropdown-item" onClick={() => navigate('/login')}>Login</div>
+              <div className="dropdown-item" onClick={handleRegisterClick}>Register</div>
             </div>
           </div>          <div className="nav-item">
             Blog
