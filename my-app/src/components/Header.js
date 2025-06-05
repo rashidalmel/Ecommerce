@@ -61,7 +61,7 @@ const Header = () => {
   return (
     <>
       <div className="top-banner">
-        <div className="banner-content">
+        <div className="top-banner-content">
           <span>Flat 50% Off On Grocery Shop.</span>
           <div className="utility-nav">            <a href="#help">Help?</a>
             <a href="#track">Track Order</a>

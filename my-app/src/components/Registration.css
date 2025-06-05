@@ -42,7 +42,7 @@
 
 .form-group {
     flex: 1;
-    margin-bottom: 0; /* Remove bottom margin since we're using row margin */
+    margin-bottom: 24px; /* Remove bottom margin since we're using row margin */
     min-width: 0; /* Prevent flex items from overflowing */
 }
 

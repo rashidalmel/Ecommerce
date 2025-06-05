@@ -34,12 +34,8 @@ const Registration = () => {
             <div className="breadcrumb">
                 <div className="breadcrumb-content">
                     <h1>Register</h1>
-                    <div className="breadcrumb-path">                        <button 
-                            onClick={() => navigate('/')} 
-                            className="breadcrumb-link"
-                        >
-                            Home
-                        </button>
+                    <div className="breadcrumb-path">
+                        <span onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>Home</span>
                         <span className="separator">&gt;&gt;</span>
                         <span className="current">Register</span>
                     </div>
