@@ -10,6 +10,21 @@ const Header = () => {
   const [isBlogOpen, setIsBlogOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  // Mobile menu items data
+  const mobileMenuItems = {
+    categories: [
+      { label: 'Classic', items: ['Left sidebar 3 column', 'Left sidebar 4 column', 'Right sidebar 3 column', 'Right sidebar 4 column', 'Full width 4 column'] },
+      { label: 'Banner', items: ['Left sidebar 3 column', 'Left sidebar 4 column', 'Right sidebar 3 column', 'Right sidebar 4 column'] }
+    ],
+    products: [
+      { label: 'Product Page', items: ['Left Sidebar', 'Right Sidebar', 'No Sidebar', 'Three Column'] },
+      { label: 'Product According', items: ['Vertical Tabs', 'Horizontal Tabs', 'Accordion Style', 'Sticky Description'] }
+    ],
+    pages: ['About Us', 'Contact Us', 'Cart', 'Checkout', 'Compare', 'FAQ', 'Login', 'Register'],
+    blog: ['Left sidebar', 'Right sidebar', 'Full width', 'Detail Left sidebar', 'Detail Right Sidebar', 'Detail Full width']
+  };
 
   const toggleVegetablesDropdown = () => {
     setIsVegetablesDropdownOpen(!isVegetablesDropdownOpen);
@@ -56,6 +71,29 @@ const Header = () => {
   const handleRegisterClick = (e) => {
     e.preventDefault();
     navigate('/register');
+  };
+
+  const toggleMobileSubmenu = (menu) => {
+    setActiveDropdown(activeDropdown === menu ? null : menu);
+  };
+
+  const handleMobileMenuItemClick = (item) => {
+    // Handle navigation or specific actions based on the item clicked
+    switch(item) {
+      case 'Login':
+        navigate('/login');
+        break;
+      case 'Register':
+        navigate('/register');
+        break;
+      case 'Home':
+        navigate('/');
+        break;
+      default:
+        // Close mobile menu for other items
+        setIsMobileMenuOpen(false);
+        setActiveDropdown(null);
+    }
   };
 
   return (
@@ -156,15 +194,80 @@ const Header = () => {
             <div className="mobile-nav-header">
               <div className="mobile-nav-title">Menu</div>
               <div className="mobile-nav-close" onClick={toggleMobileMenu}>✕</div>
-            </div>              <div className="mobile-nav-content">
-              <div className="mobile-nav-item" onClick={() => navigate('/')}>Home</div>
-              <div className="mobile-nav-item" onClick={toggleCategoriesDropdown}>
+            </div>
+            <div className="mobile-nav-content">
+              <div className="mobile-nav-item" onClick={() => handleMobileMenuItemClick('Home')}>Home</div>
+              
+              {/* Categories */}
+              <div className="mobile-nav-item" onClick={() => toggleMobileSubmenu('categories')}>
                 Categories
-                <span className={`dropdown-arrow ${isCategoriesOpen ? 'open' : ''}`}>▼</span>
+                <span className={`dropdown-arrow ${activeDropdown === 'categories' ? 'open' : ''}`}>▼</span>
               </div>
-              <div className="mobile-nav-item">Products</div>
-              <div className="mobile-nav-item">Pages</div>
-              <div className="mobile-nav-item">Blog</div>
+              {activeDropdown === 'categories' && (
+                <div className="mobile-submenu">
+                  {mobileMenuItems.categories.map((section, index) => (
+                    <div key={index} className="mobile-submenu-section">
+                      <div className="mobile-submenu-header">{section.label}</div>
+                      {section.items.map((item, idx) => (
+                        <div key={idx} className="mobile-submenu-item" onClick={() => handleMobileMenuItemClick(item)}>
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Products */}
+              <div className="mobile-nav-item" onClick={() => toggleMobileSubmenu('products')}>
+                Products
+                <span className={`dropdown-arrow ${activeDropdown === 'products' ? 'open' : ''}`}>▼</span>
+              </div>
+              {activeDropdown === 'products' && (
+                <div className="mobile-submenu">
+                  {mobileMenuItems.products.map((section, index) => (
+                    <div key={index} className="mobile-submenu-section">
+                      <div className="mobile-submenu-header">{section.label}</div>
+                      {section.items.map((item, idx) => (
+                        <div key={idx} className="mobile-submenu-item" onClick={() => handleMobileMenuItemClick(item)}>
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Pages */}
+              <div className="mobile-nav-item" onClick={() => toggleMobileSubmenu('pages')}>
+                Pages
+                <span className={`dropdown-arrow ${activeDropdown === 'pages' ? 'open' : ''}`}>▼</span>
+              </div>
+              {activeDropdown === 'pages' && (
+                <div className="mobile-submenu">
+                  {mobileMenuItems.pages.map((item, index) => (
+                    <div key={index} className="mobile-submenu-item" onClick={() => handleMobileMenuItemClick(item)}>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Blog */}
+              <div className="mobile-nav-item" onClick={() => toggleMobileSubmenu('blog')}>
+                Blog
+                <span className={`dropdown-arrow ${activeDropdown === 'blog' ? 'open' : ''}`}>▼</span>
+              </div>
+              {activeDropdown === 'blog' && (
+                <div className="mobile-submenu">
+                  {mobileMenuItems.blog.map((item, index) => (
+                    <div key={index} className="mobile-submenu-item" onClick={() => handleMobileMenuItemClick(item)}>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               <div className="mobile-nav-item">Offers</div>
             </div>
           </div>
